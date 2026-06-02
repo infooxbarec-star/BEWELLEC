@@ -31,7 +31,7 @@
       --serif: "Inter", system-ui, sans-serif;
       --sans: "Inter", system-ui, sans-serif;
       --hero: url("https://live.staticflickr.com/65535/51251811663_8da0cc914b_b.jpg");
-      --hacienda: url("https://thumbs.dreamstime.com/b/fachada-frontal-de-la-bas%C3%ADlica-del-voto-nacional-noche-en-quito-ecuador-421520477.jpg");
+      --hacienda: url("https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1500&q=85");
       --yoga: url("https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE1MDc0NDUxMzg2MzM3Nzg4Mg%3D%3D/original/71f3328d-b03c-4344-8dad-971520a2d5e4.jpeg");
       --forest: url("https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTUu-JVprIJWJZ-GhoVEK_DdDSE5aDpkrMx3YElWXSUQAvhRz6v2OKZIjv8l04FdCAWDjqv-qF6W8Qg0zOfDpb3MtY&s=19");
       --coast: url("https://live.staticflickr.com/1760/28633717528_823a20c35d_c.jpg");
@@ -527,6 +527,97 @@
       background: rgba(255,253,248,.58);
       color: var(--ink-soft);
     }
+    .whatsapp-card {
+      display: grid;
+      gap: 22px;
+      padding: clamp(28px, 4vw, 42px);
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255,253,248,.92), rgba(223,238,243,.32));
+      box-shadow: var(--soft-shadow);
+    }
+    .whatsapp-card h3 {
+      max-width: 620px;
+      font-size: clamp(28px, 3vw, 42px);
+    }
+    .whatsapp-card p { max-width: 600px; }
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: fit-content;
+      min-height: 56px;
+      padding: 15px 24px;
+      border-radius: 999px;
+      background: #1f2a25;
+      color: var(--white);
+      border: 1px solid rgba(32,39,36,.12);
+      box-shadow: 0 18px 36px rgba(32,39,36,.16);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: transform .24s cubic-bezier(.2,.8,.2,1), box-shadow .24s ease, background .24s ease;
+    }
+    .whatsapp-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 44px rgba(32,39,36,.2);
+      background: #18211d;
+    }
+    .whatsapp-icon {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 auto;
+    }
+    .contact-detail {
+      display: grid;
+      gap: 8px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line-soft);
+    }
+    .contact-detail span {
+      color: var(--earth);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .contact-detail strong {
+      color: var(--ink);
+      overflow-wrap: anywhere;
+    }
+    .floating-whatsapp {
+      position: fixed;
+      left: 22px;
+      bottom: 32px;
+      z-index: 40;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: #1f2a25;
+      color: var(--white);
+      box-shadow: 0 20px 44px rgba(32,39,36,.22);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: transform .24s cubic-bezier(.2,.8,.2,1), box-shadow .24s ease, background .24s ease;
+      animation: cardFloatIn .9s cubic-bezier(.2,.8,.2,1) .9s both;
+    }
+    .floating-whatsapp:hover {
+      transform: translateY(-3px);
+      background: #18211d;
+      box-shadow: 0 24px 54px rgba(32,39,36,.26);
+    }
+    .floating-whatsapp svg {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 auto;
+    }
     form {
       display: grid;
       gap: 16px;
@@ -676,6 +767,14 @@
       .trust-line span::after { display: none; }
       .image-panel { min-height: 360px; }
       .principles, .retreats-grid, .method-steps, .form-grid { grid-template-columns: 1fr; }
+      .whatsapp-button { width: 100%; }
+      .floating-whatsapp {
+        left: 14px;
+        bottom: 18px;
+        min-height: 50px;
+        padding: 13px 15px;
+      }
+      .floating-whatsapp-label { display: none; }
       .principle, .method-step { min-height: auto; }
       .method-step span { margin-bottom: 28px; }
       .footer-inner { align-items: flex-start; flex-direction: column; }
@@ -720,7 +819,7 @@
           <button type="button" data-lang="en" aria-pressed="false">EN</button>
         </div>
         <button class="btn btn-outline menu-button" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks" data-i18n="nav.menu">Menú</button>
-        <a class="btn btn-primary" href="#contacto" data-i18n="nav.cta">Consultar</a>
+        <a class="btn btn-primary" href="https://wa.me/14153163892?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20lo%20que%20hacen%20en%20BEWELL." target="_blank" rel="noopener" data-i18n="nav.cta">Consultar</a>
       </div>
     </div>
   </header>
@@ -750,7 +849,7 @@
               <strong>Rooted in Ecuador.</strong>
               <p>Guiado por profesoras y facilitadoras de Ecuador, México y Estados Unidos.</p>
             </div>
-            <a class="btn btn-secondary" href="#contacto">Planificar retiro</a>
+            <a class="btn btn-secondary" href="https://wa.me/14153163892?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20lo%20que%20hacen%20en%20BEWELL." target="_blank" rel="noopener">Planificar retiro</a>
           </aside>
         </div>
       </div>
@@ -862,7 +961,7 @@
                 <li>Comidas nutritivas</li>
                 <li>Journaling y caminatas lentas</li>
               </ul>
-              <a class="btn btn-outline" href="#contacto">Consultar</a>
+              <a class="btn btn-outline" href="https://wa.me/14153163892?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20lo%20que%20hacen%20en%20BEWELL." target="_blank" rel="noopener">Consultar</a>
             </div>
           </article>
           <article class="retreat-card">
@@ -876,7 +975,7 @@
                 <li>Respiración y contemplación</li>
                 <li>Inmersión en naturaleza</li>
               </ul>
-              <a class="btn btn-outline" href="#contacto">Consultar</a>
+              <a class="btn btn-outline" href="https://wa.me/14153163892?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20lo%20que%20hacen%20en%20BEWELL." target="_blank" rel="noopener">Consultar</a>
             </div>
           </article>
           <article class="retreat-card">
@@ -890,7 +989,7 @@
                 <li>Tiempo libre restaurativo</li>
                 <li>Rituales de cierre</li>
               </ul>
-              <a class="btn btn-outline" href="#contacto">Consultar</a>
+              <a class="btn btn-outline" href="https://wa.me/14153163892?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20lo%20que%20hacen%20en%20BEWELL." target="_blank" rel="noopener">Consultar</a>
             </div>
           </article>
           <article class="retreat-card">
@@ -904,7 +1003,7 @@
                 <li>Selección de ubicación</li>
                 <li>Facilitadoras invitadas</li>
               </ul>
-              <a class="btn btn-outline" href="#contacto">Consultar</a>
+              <a class="btn btn-outline" href="https://wa.me/14153163892?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20lo%20que%20hacen%20en%20BEWELL." target="_blank" rel="noopener">Consultar</a>
             </div>
           </article>
         </div>
@@ -950,38 +1049,36 @@
         <div class="text-stack">
           <span class="kicker">Contacto</span>
           <h2>Comienza tu conversación con BEWELL.</h2>
-          <p class="lead">Cuéntanos qué tipo de retiro estás imaginando y responderemos con opciones de fecha, ubicación, formato y próximos pasos.</p>
+          <p class="lead">Cuéntanos qué tipo de retiro estás imaginando y continuaremos la conversación directamente por WhatsApp.</p>
           <p class="contact-note">Para grupos privados, profesoras visitantes, alianzas de retiro y experiencias de bienestar a medida en Ecuador.</p>
         </div>
-        <form action="mailto:hello@bewell.ec" method="post" enctype="text/plain">
-          <div class="form-grid">
-            <label>Nombre
-              <input name="name" autocomplete="name" required placeholder="Tu nombre">
-            </label>
-            <label>Email
-              <input name="email" type="email" autocomplete="email" required placeholder="tu@email.com">
-            </label>
-            <label>WhatsApp
-              <input name="whatsapp" autocomplete="tel" placeholder="+593 ...">
-            </label>
-            <label>Retiro deseado
-              <select name="desired_retreat">
-                <option>Andean Reset</option>
-                <option>Cloud Forest Silence</option>
-                <option>Coastal Wellness Escape</option>
-                <option>Private Group Retreats</option>
-                <option>Aún no estoy seguro/a</option>
-              </select>
-            </label>
-            <label class="span-full">Mensaje
-              <textarea name="message" placeholder="Cuéntanos fechas tentativas, número de personas y qué te gustaría priorizar."></textarea>
-            </label>
+        <aside class="whatsapp-card" aria-label="Contacto por WhatsApp">
+          <div>
+            <span class="kicker">WhatsApp</span>
+            <h3>La forma directa de contactar con BEWELL.</h3>
           </div>
-          <button class="btn btn-primary" type="submit">Start your BEWELL journey</button>
-        </form>
+          <p>Haz clic y se abrirá WhatsApp con el mensaje preparado para iniciar la conversación.</p>
+          <a class="whatsapp-button" href="https://wa.me/14153163892?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20lo%20que%20hacen%20en%20BEWELL." target="_blank" rel="noopener" aria-label="Contactar BEWELL por WhatsApp">
+            <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M19.05 4.91A9.8 9.8 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2.05 22l5.26-1.38a9.9 9.9 0 0 0 4.73 1.2h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7Zm-7.01 15.24h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.26-8.25a8.2 8.2 0 0 1 5.84 2.42 8.2 8.2 0 0 1 2.42 5.83c-.01 4.55-3.71 8.24-8.27 8.24Zm4.52-6.17c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.98-.15.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.02 2.58c.13.17 1.76 2.69 4.26 3.77.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z"/>
+            </svg>
+            <span>Escribir por WhatsApp</span>
+          </a>
+          <div class="contact-detail">
+            <span>Correo</span>
+            <strong>Saenz.isabel@gmail.com</strong>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
+
+  <a class="floating-whatsapp" href="https://wa.me/14153163892?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20lo%20que%20hacen%20en%20BEWELL." target="_blank" rel="noopener" aria-label="Contactar BEWELL por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M19.05 4.91A9.8 9.8 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2.05 22l5.26-1.38a9.9 9.9 0 0 0 4.73 1.2h.01c5.46 0 9.91-4.45 9.91-9.91a9.86 9.86 0 0 0-2.91-7Zm-7.01 15.24h-.01a8.22 8.22 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.26-8.25a8.2 8.2 0 0 1 5.84 2.42 8.2 8.2 0 0 1 2.42 5.83c-.01 4.55-3.71 8.24-8.27 8.24Zm4.52-6.17c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.98-.15.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.02 2.58c.13.17 1.76 2.69 4.26 3.77.6.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29Z"/>
+    </svg>
+    <span class="floating-whatsapp-label">WhatsApp</span>
+  </a>
 
   <footer>
     <div class="container footer-inner">
@@ -1097,9 +1194,13 @@
           ".method-step:nth-child(4) p": "Llevar la experiencia a la vida diaria con prácticas simples, realistas y sostenibles.",
           "#contacto .kicker": "Contacto",
           "#contacto h2": "Comienza tu conversación con BEWELL.",
-          "#contacto .lead": "Cuéntanos qué tipo de retiro estás imaginando y responderemos con opciones de fecha, ubicación, formato y próximos pasos.",
+          "#contacto .lead": "Cuéntanos qué tipo de retiro estás imaginando y continuaremos la conversación directamente por WhatsApp.",
           ".contact-note": "Para grupos privados, profesoras visitantes, alianzas de retiro y experiencias de bienestar a medida en Ecuador.",
-          "form .btn": "Start your BEWELL journey",
+          ".whatsapp-card .kicker": "WhatsApp",
+          ".whatsapp-card h3": "La forma directa de contactar con BEWELL.",
+          ".whatsapp-card > p": "Haz clic y se abrirá WhatsApp con el mensaje preparado para iniciar la conversación.",
+          ".whatsapp-button span": "Escribir por WhatsApp",
+          ".contact-detail span": "Correo",
           "footer .footer-inner > span": "Retiros de bienestar en Ecuador · Yoga · Meditación · Salud integral"
         },
         labels: ["Nombre", "Email", "WhatsApp", "Retiro deseado", "Mensaje"],
@@ -1204,9 +1305,13 @@
           ".method-step:nth-child(4) p": "Bring the experience into daily life through simple, realistic, and sustainable practices.",
           "#contacto .kicker": "Contact",
           "#contacto h2": "Begin your conversation with BEWELL.",
-          "#contacto .lead": "Tell us what kind of retreat you are imagining and we will reply with date, location, format, and next-step options.",
+          "#contacto .lead": "Tell us what kind of retreat you are imagining and we will continue the conversation directly through WhatsApp.",
           ".contact-note": "For private groups, visiting instructors, retreat partnerships, and custom wellness experiences in Ecuador.",
-          "form .btn": "Start your BEWELL journey",
+          ".whatsapp-card .kicker": "WhatsApp",
+          ".whatsapp-card h3": "The direct way to contact BEWELL.",
+          ".whatsapp-card > p": "Tap the button and WhatsApp will open with a prepared message to start the conversation.",
+          ".whatsapp-button span": "Message on WhatsApp",
+          ".contact-detail span": "Email",
           "footer .footer-inner > span": "Wellness retreats in Ecuador · Yoga · Meditation · Holistic Health"
         },
         labels: ["Name", "Email", "WhatsApp", "Desired retreat", "Message"],
@@ -1285,7 +1390,7 @@
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     function initScrollReveals() {
       const targets = [
-        ...document.querySelectorAll(".section-head, .editorial-grid, .teacher-card, .retreat-card, .method-intro, .method-step, .contact-wrap, form, footer"),
+        ...document.querySelectorAll(".section-head, .editorial-grid, .teacher-card, .retreat-card, .method-intro, .method-step, .contact-wrap, .whatsapp-card, footer"),
         ...document.querySelectorAll(".image-panel")
       ];
 
